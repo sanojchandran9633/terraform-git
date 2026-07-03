@@ -18,5 +18,6 @@ resource "aws_subnet" "subnets" {
   tags = {
     Name = each.value
     Environment = Development
+    Project = abc-app
   }
 }
