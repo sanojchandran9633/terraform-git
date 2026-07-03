@@ -21,5 +21,6 @@ resource "aws_subnet" "subnets" {
     Project = "abc-app"
     Owner = "DevOps team"
     Version = "1.2.2"
+    region = "us-east-1"
   }
 }
