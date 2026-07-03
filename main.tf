@@ -17,7 +17,8 @@ resource "aws_subnet" "subnets" {
   cidr_block = cidrsubnet(aws_vpc.main.cidr_block, 8, each.key)
   tags = {
     Name = each.value
-    Environment = Development
-    Project = abc-app
+    Environment = "Development"
+    Project = "abc-app"
+    Owner = "DevOps team"
   }
 }
