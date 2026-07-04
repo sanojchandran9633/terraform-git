@@ -8,5 +8,6 @@ variable "sub_name" {
   default = {
     "1"  = "sub-1"
     "2" = "sub-2"
+    "3" = "Sub-3"
   }
 }
