@@ -6,8 +6,9 @@ variable "vpc_cidr" {
 variable "sub_name" {
   type = map(string)
   default = {
-    "1"  = "sub-1"
-    "2" = "sub-2"
-    "3" = "Sub-3"
+    "1" = "Pri-1"
+    "2" = "Pri-2"
+    "3" = "Pub-3"
+    "4" = "Pub-4"
   }
 }

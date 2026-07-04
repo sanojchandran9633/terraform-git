@@ -7,7 +7,7 @@ resource "aws_vpc" "main" {
 }
 
 locals {
-  sub_count = ["1","2"]
+  sub_count = ["1", "2"]
 }
 
 
@@ -16,11 +16,11 @@ resource "aws_subnet" "subnets" {
   vpc_id     = aws_vpc.main.id
   cidr_block = cidrsubnet(aws_vpc.main.cidr_block, 8, each.key)
   tags = {
-    Name = each.value
+    Name        = each.value
     Environment = "Development"
-    Project = "abc-app"
-    Owner = "DevOps team"
-    Version = "1.2.2"
-    region = "us-east-1"
+    Project     = "abc-app"
+    Owner       = "DevOps team"
+    Version     = "1.2.2"
+    region      = "us-east-1"
   }
 }
