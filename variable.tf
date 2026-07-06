@@ -8,5 +8,6 @@ variable "sub_name" {
   default = {
     "1" = "Pri-1"
     "2" = "Pri-2"
+    "3" = "pub-1"
   }
 }
