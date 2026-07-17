@@ -36,8 +36,8 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
-resource "aws_instance" "ubuntu" {
-  count = 2
+resource "aws_instance" "ubuntu"{
+  count = 3
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
   subnet_id     = aws_subnet.subnets["1"].id
