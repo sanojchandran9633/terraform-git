@@ -43,6 +43,6 @@ resource "aws_instance" "ubuntu" {
   subnet_id     = aws_subnet.subnets["1"].id
 
   tags = {
-    Name = "server-[count.index]"
+    Name = "server-${count.index + 1}"
   }
 }
