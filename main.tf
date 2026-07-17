@@ -37,11 +37,12 @@ data "aws_ami" "ubuntu" {
 }
 
 resource "aws_instance" "ubuntu" {
+  count = 2
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
   subnet_id     = aws_subnet.subnets["1"].id
 
   tags = {
-    Name = "server-1"
+    Name = "server-[count.index]"
   }
 }
