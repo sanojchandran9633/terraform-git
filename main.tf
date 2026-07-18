@@ -12,7 +12,7 @@ module "sg" {
 
 module "public_ec2" {
   source         = "./modules/ec2"
-  instance_count = 2
+  instance_count = 3
   ami            = var.ami
   instance_type  = var.instance_type
   subnet_id      = module.vpc.public_subnet_id
@@ -22,7 +22,7 @@ module "public_ec2" {
 
 module "private_ec2" {
   source         = "./modules/ec2"
-  instance_count = 2
+  instance_count = 0
   ami            = var.ami
   instance_type  = var.instance_type
   subnet_id      = module.vpc.private_subnet_id
