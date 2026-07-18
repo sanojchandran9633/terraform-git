@@ -10,6 +10,7 @@ resource "aws_subnet" "subnets" {
   for_each   = var.sub_name
   vpc_id     = aws_vpc.main.id
   cidr_block = cidrsubnet(aws_vpc.main.cidr_block, 8, each.key)
+  map_public_ip_on_launch = true
   tags = {
     Name        = each.value
     Environment = "Development"
@@ -17,6 +18,13 @@ resource "aws_subnet" "subnets" {
     Owner       = "DevOps team"
     Version     = "1.2.2"
     region      = "us-east-1"
+  }
+}
+
+resource "aws_internet_gateway" "gw"{
+  vpc_id = aws_vpc.main.id
+  tags = {
+    Name = "main-igw"
   }
 }
 
