@@ -7,9 +7,9 @@ resource "aws_vpc" "main" {
 }
 
 resource "aws_subnet" "subnets" {
-  for_each   = var.sub_name
-  vpc_id     = aws_vpc.main.id
-  cidr_block = cidrsubnet(aws_vpc.main.cidr_block, 8, each.key)
+  for_each                = var.sub_name
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = cidrsubnet(aws_vpc.main.cidr_block, 8, each.key)
   map_public_ip_on_launch = true
   tags = {
     Name        = each.value
@@ -21,7 +21,7 @@ resource "aws_subnet" "subnets" {
   }
 }
 
-resource "aws_internet_gateway" "gw"{
+resource "aws_internet_gateway" "gw" {
   vpc_id = aws_vpc.main.id
   tags = {
     Name = "main-igw"
@@ -44,8 +44,8 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
-resource "aws_instance" "ubuntu"{
-  count = 3
+resource "aws_instance" "ubuntu" {
+  count         = 3
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
   subnet_id     = aws_subnet.subnets["1"].id
